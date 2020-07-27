@@ -1,13 +1,13 @@
 """Fixture lookup / discovery
 
-What LEGB is for Python names, KMCPB is for pytest fixtures
+What LEGB is for Python names, CMLIB is for pytest fixtures
 
 ... only not as palatable
 
-* (K)lass
+* (C)lass
 * (M)odule
-* (C)onftest.py (searching directory upwards)
-* (P)lugins
+* (L)ocal plugins (conftest.py - searching directory upwards)
+* (I)nstalled plugins
 * (B)uiltin fixtures
 """
 import json
