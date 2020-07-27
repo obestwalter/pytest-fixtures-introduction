@@ -1,0 +1,263 @@
+/* ############ GENERAL ############ */
+
+html, body {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 140%;
+}
+
+
+pre, .CodeMirror, .rendered_html pre, .rendered_html code {
+    font-family: "Menlo", monospace;
+    font-size: 140% !important;
+    line-height: 1.4em !important;
+}
+
+del {
+    /*font-size: 4em;*/
+    text-decoration: none;
+    line-height: 2em;
+    position: relative;
+}
+
+.output {
+    font-size: 135% !important;
+}
+
+del::after {
+    border-bottom: 0.125em solid red;
+    content: "";
+    left: 0;
+    margin-top: calc(0.125em / 2 * -1);
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+/* ############  Notebook view ############ */
+
+.container {
+    width:95% !important;
+    /*font-size: 110%;*/
+}
+
+div.prompt {
+    min-width: 9ex;
+}
+
+
+#notebook-container {
+    font-size: 140%;
+}
+
+/* ############  SLIDES FROM RISE EXTENSION ############ */
+
+.reveal {
+    font-family: "National Park Heavy", sans-serif;
+    background: #FFFFFF;
+}
+
+.rise-enabled .text_cell.rendered .rendered_html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    /*font-family: "National Park Thin", sans-serif;*/
+    font-family: "National Park Heavy", sans-serif;
+    margin: 0 0 20px 0;
+    color: #333;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    /*text-transform: uppercase;*/
+    text-shadow: none;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.reveal section img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rendered_html pre {
+    font-size: 135% !important;
+}
+
+.rendered_html blockquote {
+    margin: 0;
+}
+
+.reveal blockquote {
+    width: 90%;
+}
+
+.reveal p {
+    font-family: "National Park Thin", sans-serif;
+    font-weight: bold;
+    font-size: 130% !important;
+    margin: 0 0;
+    line-height: 1.3;
+}
+
+.reveal ul, .reveal li {
+    font-family: "National Park Thin", sans-serif;
+    font-size: 110% !important;
+    line-height: 1.0;
+    list-style: disc;
+}
+
+/* ##################### CLEAN LOOK FOR PRESENTATIONS ###################### */
+/*#F37726*/
+
+div.input_area {border: none;}
+div.prompt, div.prompt.input_prompt, div.prompt.output_prompt {display: None !important;}
+div.output_subarea {max-width: 100% !important;}
+#exit_b, #help_b {display: none;}
+div.slide-number {display: none !important;}
+
+div.cell.code_cell.rendered {
+    margin-top: 15px;
+    border: rgba(243, 119, 38, 0.2) solid 5px;
+    border-radius: 10px;
+}
+
+div.cell.code_cell.rendered.selected {
+    border: #008000 solid 5px;
+}
+
+div.input_area {
+    padding-left: 10px !important;
+    background: #FFFFFF;
+}
+
+div.input, div.output_wrapper {
+    margin: 0 10px 5px;
+}
+
+/*div.output_wrapper {*/
+/*    border-top: rgba(243, 119, 38, 0.2) dashed 3px;*/
+/*    padding-top: 7px !important;*/
+/*}*/
+
+div.output_subarea.output_text.output_stream.output_stdout {
+    background: rgba(24, 184, 251, 0.17);
+}
+
+div.output_subarea.output_text.output_result {
+    background: rgba(0, 241, 0, 0.33);
+}
+
+div.output_stderr {
+    background: #eeeeee !important;
+}
+
+/*div.cell.code_cell.rendered.selected::before {display: None;}*/
+div.cell.selected::before, div.cell.selected.jupyter-soft-selected::before {
+    background: #008000;
+    height: calc(33%);
+    top: 33%;
+    bottom: -33%;
+    border-radius: 10px;
+    left: -12px;
+    width: 20px;
+    position: absolute;
+    display: block;
+    content: '';
+}
+
+.rise-enabled .reveal .progress {
+  position: fixed;
+  display: none;
+  height: 7px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #FFFFFF;
+}
+
+.reveal .progress span {
+    display: block;
+    height: 100%;
+    width: 0;
+    /*background-color: #F37726;*/
+    -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+    transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+/* SPECIFIC hacks growing in ugliness to override strange choices further down */
+
+/*adjust markdwon code to size of normal font*/
+div.cell.text_cell.rendered code {
+    font-size: 90% !important;
+}
+
+div.cell.selected, div.cell.selected.jupyter-soft-selected {
+    border: 1px solid transparent;
+}
+
+/*.command_mode div.cell.code_cell.rendered.selected {}*/
+.edit_mode .selected {
+    border: none;
+    background-color: rgba(102, 204, 68, 0.37);
+}
+
+table.table.table-condensed.table-nonfluid.tablesorter.tablesorter-default thead tr.tablesorter-headerRow th.tablesorter-header.tablesorter-headerUnSorted div.tablesorter-header-inner {
+    text-align: center;
+}
+
+table.table.table-condensed.table-nonfluid.tablesorter.tablesorter-default {
+    font-size: 80%;
+    /*text-align: left;*/
+}
+
+table.table.table-condensed.table-nonfluid.tablesorter.tablesorter-default tbody tr td {
+    text-align: left;
+    margin-left: 5px;
+}
+
+
+/* ############ SPEAKER NOTES ############  */
+
+/*TODO*/
+
+/* ############ NOTEBOOK UI ############  */
+
+.navbar-collapse, #cell_type, #kernel_indicator {
+    padding: 0;
+    font-size: 60% !important;
+}
+
+/* ############ TREE VIEW ############  */
+
+#project_name {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 26px;
+}
+
+div.col-md-12 {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 26px;
+    padding-top: 10px;
+}
+
+/*.dynamic-instructions,*/
+/*#sort-name,*/
+/*#tree-selector,*/
+/*div.col-md-12 input,*/
+#last-modified, .item_modified,
+#file_size, .file_size
+{
+    display: none;
+}
+
+div.col-md-12 i.item_icon {
+    padding-right: 10px;
+}
