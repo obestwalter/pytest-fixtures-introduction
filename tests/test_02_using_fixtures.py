@@ -1,8 +1,14 @@
 """The same tests using builtin fixtures.
 
-Find out which fixtures are available in your test suite:
+Important command line options when working with fixtures
 
-    pytest --fixtures           # shows all available fixtures
+pytest --fixtures           # shows all available fixtures in current test suite
+pytest --fixtures-per-test  # shows which fixtures are used per test
+pytest --setup-plan         # only show what would be done
+pytest --setup-only         # run the fixtures but not the tests
+pytest --setup-show         # run tests and show fixture setup/teardown
+
+(to use in PyCharm) set Edit Configurations -> Additional Arguments: --setup-show
 """
 import json
 
