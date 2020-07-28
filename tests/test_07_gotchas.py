@@ -23,6 +23,7 @@ def my_settings():
 
 @pytest.fixture
 def fake_settings_environment(monkeypatch, tmp_path):
+    """Fool the program into using a different environment for the settings."""
     monkeypatch.setattr(my_code, "MY_SETTINGS_PATH", tmp_path / ".my_fake_settings")
     print(f"\nfake_settings_environment fixture in {__file__} -> {tmp_path}")
 
@@ -33,6 +34,7 @@ def fake_settings_environment(monkeypatch, tmp_path):
 # we think we use the fake_settings_environment fixture but we don't
 @pytest.mark.usefixtures("fake_settings_environment")  # this fails silently :(
 def kitchensink(my_settings):
+    """Fake the environment and pass back the settings all in one fixture."""
     assert tempfile.gettempdir() in str(
         my_code.MY_SETTINGS_PATH
     ), my_code.MY_SETTINGS_PATH

@@ -15,6 +15,7 @@ def my_settings():
 
 @pytest.fixture
 def fake_settings_environment(monkeypatch, tmp_path):
+    """Fool the program into using a different environment for the settings."""
     monkeypatch.setattr(my_code, "MY_SETTINGS_PATH", tmp_path / ".my_fake_settings")
     print(f"\nfake_settings_environment fixture in {__file__} -> {tmp_path}")
 
