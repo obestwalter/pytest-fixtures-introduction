@@ -4,8 +4,8 @@ Interesting bugs are usually an unfortunate combination of wrong assumptions pla
 together in a way that it might seem like things work fine on first look but they don't
 
 * check your assumptions, especially when dealing with test code (test your tests?)
-* use assertions to verify important assumptions programmatically, also in fixtures
-* if something goes wrong in a fixture, this is an error not a test failure
+* use assertions to verify important assumptions programmatically, also in fixtures/tests
+* if something goes wrong in a fixture, this is an error -  not a test failure
 """
 import tempfile
 
@@ -39,6 +39,12 @@ def kitchensink(my_settings):
     return my_settings
 
 
+def test_forgot_a_dependency():
+    # easy to debug, but something static code analysis won't catch
+    # as PyCharm is pytest aware it **could** catch something like this though ...
+    assert my_settings == {"name": "Eric"}
+
+
 def test_using_my_settings(my_settings):
     # TODO comment out to show bug
     # assert tempfile.gettempdir() in str(
@@ -48,7 +54,7 @@ def test_using_my_settings(my_settings):
 
 
 @pytest.mark.usefixtures("kitchensink")
-def test_using_kitchensink():
+def test_using_kitchensink(my_settings):
     # kitchensink fixture doesn't exist when a name is explicitly set
     assert tempfile.gettempdir() in str(
         my_code.MY_SETTINGS_PATH
